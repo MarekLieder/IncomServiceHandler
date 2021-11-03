@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceNetBase" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BindingUserPassword_IServiceNetBase_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:BootstrapPolicy>
+                  <wsp:Policy>
+                    <sp:SignedParts>
+                      <sp:Body />
+                      <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                    </sp:SignedParts>
+                    <sp:EncryptedParts>
+                      <sp:Body />
+                    </sp:EncryptedParts>
+                    <sp:TransportBinding>
+                      <wsp:Policy>
+                        <sp:TransportToken>
+                          <wsp:Policy>
+                            <sp:HttpsToken RequireClientCertificate="false" />
+                          </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                          <wsp:Policy>
+                            <sp:Basic256 />
+                          </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                          <wsp:Policy>
+                            <sp:Strict />
+                          </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp />
+                      </wsp:Policy>
+                    </sp:TransportBinding>
+                    <sp:SignedSupportingTokens>
+                      <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                          <wsp:Policy>
+                            <sp:WssUsernameToken10 />
+                          </wsp:Policy>
+                        </sp:UsernameToken>
+                      </wsp:Policy>
+                    </sp:SignedSupportingTokens>
+                    <sp:Wss11>
+                      <wsp:Policy />
+                    </sp:Wss11>
+                    <sp:Trust10>
+                      <wsp:Policy>
+                        <sp:MustSupportIssuedTokens />
+                        <sp:RequireClientEntropy />
+                        <sp:RequireServerEntropy />
+                      </wsp:Policy>
+                    </sp:Trust10>
+                  </wsp:Policy>
+                </sp:BootstrapPolicy>
+              </wsp:Policy>
+            </sp:SecureConversationToken>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicBindingUserPassword_IServiceNetBase_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://online.incom.pl/NBWebServiceIT/service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://online.incom.pl/NBWebServiceIT/service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://online.incom.pl/NBWebServiceIT/service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceNetBase_GetTowaryInfoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryInfoList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowaryInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowaryStanList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryStanList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowaryStanList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryStanListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowaryGrupaInfoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryGrupaInfoList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowaryGrupaInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowaryGrupaInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowarParametry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowarParametry" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTowarParametry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowarParametryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetFakturyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakturyList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetFakturyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakturyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTransakcjeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransakcjeList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetTransakcjeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransakcjeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaPrzetwarzaneList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaPrzetwarzaneList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaPrzetwarzaneList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaPrzetwarzaneListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetKoszyk_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetKoszyk" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetKoszyk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetKoszykResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKoszykPozycjeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKoszykPozycjeList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKoszykPozycjeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKoszykPozycjeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKoszykiList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKoszykiList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKoszykiList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKoszykiListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetSposóbZapłatyOdbioruList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSposóbZapłatyOdbioruList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetSposóbZapłatyOdbioruList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSposóbZapłatyOdbioruListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMiejscaDostawyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMiejscaDostawyList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMiejscaDostawyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMiejscaDostawyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMożliwyTerminDostawyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMożliwyTerminDostawyList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMożliwyTerminDostawyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMożliwyTerminDostawyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMożliweDniPłatnościList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMożliweDniPłatnościList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetMożliweDniPłatnościList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMożliweDniPłatnościListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienie_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienie" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV3_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV3" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV3Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV4_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV4" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieV4_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieV4Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_DelKoszyk_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelKoszyk" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_DelKoszyk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelKoszykResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetGrupyTowaroweList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupyTowaroweList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetGrupyTowaroweList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupyTowaroweListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKrajeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKrajeList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetKrajeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKrajeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_DelAdresWysyłkowy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelAdresWysyłkowy" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_DelAdresWysyłkowy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelAdresWysyłkowyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresWysyłkowy_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresWysyłkowy" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresWysyłkowy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresWysyłkowyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweListV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweListV2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweListV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweListV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresWysyłkowyV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresWysyłkowyV2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresWysyłkowyV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresWysyłkowyV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweHistListV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweHistListV2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetAdresyWysyłkoweHistListV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdresyWysyłkoweHistListV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresyWysyłkoweNieAktywnyV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresyWysyłkoweNieAktywnyV2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetAdresyWysyłkoweNieAktywnyV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdresyWysyłkoweNieAktywnyV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetOswiadczenieVATList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOswiadczenieVATList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetOswiadczenieVATList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOswiadczenieVATListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetOswiadczenieCzynnyPodatnikVAT_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetOswiadczenieCzynnyPodatnikVAT" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetOswiadczenieCzynnyPodatnikVAT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetOswiadczenieCzynnyPodatnikVATResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaDRList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaDRList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetZamówieniaDRList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZamówieniaDRListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetFakturyDRList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakturyDRList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetFakturyDRList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakturyDRListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieDRZnieśBlokadę_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieDRZnieśBlokadę" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_SetZamówienieDRZnieśBlokadę_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetZamówienieDRZnieśBlokadęResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetPunktyOdbioruKurieraList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPunktyOdbioruKurieraList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceNetBase_GetPunktyOdbioruKurieraList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPunktyOdbioruKurieraListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceNetBase">
+    <wsdl:operation name="GetTowaryInfoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryInfoList" message="tns:IServiceNetBase_GetTowaryInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryInfoListResponse" message="tns:IServiceNetBase_GetTowaryInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryStanList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryStanList" message="tns:IServiceNetBase_GetTowaryStanList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryStanListResponse" message="tns:IServiceNetBase_GetTowaryStanList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryGrupaInfoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryGrupaInfoList" message="tns:IServiceNetBase_GetTowaryGrupaInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowaryGrupaInfoListResponse" message="tns:IServiceNetBase_GetTowaryGrupaInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTowarParametry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowarParametry" message="tns:IServiceNetBase_GetTowarParametry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetTowarParametryResponse" message="tns:IServiceNetBase_GetTowarParametry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetFakturyList" message="tns:IServiceNetBase_GetFakturyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetFakturyListResponse" message="tns:IServiceNetBase_GetFakturyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransakcjeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetTransakcjeList" message="tns:IServiceNetBase_GetTransakcjeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetTransakcjeListResponse" message="tns:IServiceNetBase_GetTransakcjeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaList" message="tns:IServiceNetBase_GetZamówieniaList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaListResponse" message="tns:IServiceNetBase_GetZamówieniaList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaPrzetwarzaneList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaPrzetwarzaneList" message="tns:IServiceNetBase_GetZamówieniaPrzetwarzaneList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaPrzetwarzaneListResponse" message="tns:IServiceNetBase_GetZamówieniaPrzetwarzaneList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetKoszyk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetKoszyk" message="tns:IServiceNetBase_SetKoszyk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetKoszykResponse" message="tns:IServiceNetBase_SetKoszyk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykPozycjeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetKoszykPozycjeList" message="tns:IServiceNetBase_GetKoszykPozycjeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetKoszykPozycjeListResponse" message="tns:IServiceNetBase_GetKoszykPozycjeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykiList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetKoszykiList" message="tns:IServiceNetBase_GetKoszykiList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetKoszykiListResponse" message="tns:IServiceNetBase_GetKoszykiList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSposóbZapłatyOdbioruList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetSposóbZapłatyOdbioruList" message="tns:IServiceNetBase_GetSposóbZapłatyOdbioruList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetSposóbZapłatyOdbioruListResponse" message="tns:IServiceNetBase_GetSposóbZapłatyOdbioruList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMiejscaDostawyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetMiejscaDostawyList" message="tns:IServiceNetBase_GetMiejscaDostawyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetMiejscaDostawyListResponse" message="tns:IServiceNetBase_GetMiejscaDostawyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliwyTerminDostawyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetMożliwyTerminDostawyList" message="tns:IServiceNetBase_GetMożliwyTerminDostawyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetMożliwyTerminDostawyListResponse" message="tns:IServiceNetBase_GetMożliwyTerminDostawyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliweDniPłatnościList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetMożliweDniPłatnościList" message="tns:IServiceNetBase_GetMożliweDniPłatnościList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetMożliweDniPłatnościListResponse" message="tns:IServiceNetBase_GetMożliweDniPłatnościList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienie" message="tns:IServiceNetBase_SetZamówienie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieResponse" message="tns:IServiceNetBase_SetZamówienie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV2" message="tns:IServiceNetBase_SetZamówienieV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV2Response" message="tns:IServiceNetBase_SetZamówienieV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV3" message="tns:IServiceNetBase_SetZamówienieV3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV3Response" message="tns:IServiceNetBase_SetZamówienieV3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV4">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV4" message="tns:IServiceNetBase_SetZamówienieV4_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieV4Response" message="tns:IServiceNetBase_SetZamówienieV4_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKoszyk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/DelKoszyk" message="tns:IServiceNetBase_DelKoszyk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/DelKoszykResponse" message="tns:IServiceNetBase_DelKoszyk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrupyTowaroweList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetGrupyTowaroweList" message="tns:IServiceNetBase_GetGrupyTowaroweList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetGrupyTowaroweListResponse" message="tns:IServiceNetBase_GetGrupyTowaroweList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKrajeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetKrajeList" message="tns:IServiceNetBase_GetKrajeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetKrajeListResponse" message="tns:IServiceNetBase_GetKrajeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweList" message="tns:IServiceNetBase_GetAdresyWysyłkoweList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweListResponse" message="tns:IServiceNetBase_GetAdresyWysyłkoweList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAdresWysyłkowy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/DelAdresWysyłkowy" message="tns:IServiceNetBase_DelAdresWysyłkowy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/DelAdresWysyłkowyResponse" message="tns:IServiceNetBase_DelAdresWysyłkowy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowy" message="tns:IServiceNetBase_SetAdresWysyłkowy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowyResponse" message="tns:IServiceNetBase_SetAdresWysyłkowy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweListV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweListV2" message="tns:IServiceNetBase_GetAdresyWysyłkoweListV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweListV2Response" message="tns:IServiceNetBase_GetAdresyWysyłkoweListV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowyV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowyV2" message="tns:IServiceNetBase_SetAdresWysyłkowyV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowyV2Response" message="tns:IServiceNetBase_SetAdresWysyłkowyV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweHistListV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweHistListV2" message="tns:IServiceNetBase_GetAdresyWysyłkoweHistListV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweHistListV2Response" message="tns:IServiceNetBase_GetAdresyWysyłkoweHistListV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresyWysyłkoweNieAktywnyV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresyWysyłkoweNieAktywnyV2" message="tns:IServiceNetBase_SetAdresyWysyłkoweNieAktywnyV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetAdresyWysyłkoweNieAktywnyV2Response" message="tns:IServiceNetBase_SetAdresyWysyłkoweNieAktywnyV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOswiadczenieVATList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetOswiadczenieVATList" message="tns:IServiceNetBase_GetOswiadczenieVATList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetOswiadczenieVATListResponse" message="tns:IServiceNetBase_GetOswiadczenieVATList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOswiadczenieCzynnyPodatnikVAT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetOswiadczenieCzynnyPodatnikVAT" message="tns:IServiceNetBase_SetOswiadczenieCzynnyPodatnikVAT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetOswiadczenieCzynnyPodatnikVATResponse" message="tns:IServiceNetBase_SetOswiadczenieCzynnyPodatnikVAT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaDRList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaDRList" message="tns:IServiceNetBase_GetZamówieniaDRList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetZamówieniaDRListResponse" message="tns:IServiceNetBase_GetZamówieniaDRList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyDRList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetFakturyDRList" message="tns:IServiceNetBase_GetFakturyDRList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetFakturyDRListResponse" message="tns:IServiceNetBase_GetFakturyDRList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieDRZnieśBlokadę">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieDRZnieśBlokadę" message="tns:IServiceNetBase_SetZamówienieDRZnieśBlokadę_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/SetZamówienieDRZnieśBlokadęResponse" message="tns:IServiceNetBase_SetZamówienieDRZnieśBlokadę_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPunktyOdbioruKurieraList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceNetBase/GetPunktyOdbioruKurieraList" message="tns:IServiceNetBase_GetPunktyOdbioruKurieraList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceNetBase/GetPunktyOdbioruKurieraListResponse" message="tns:IServiceNetBase_GetPunktyOdbioruKurieraList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BindingUserPassword_IServiceNetBase" type="tns:IServiceNetBase">
+    <wsp:PolicyReference URI="#BindingUserPassword_IServiceNetBase_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTowaryInfoList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryInfoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryStanList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryStanList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryGrupaInfoList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryGrupaInfoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowarParametry">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowarParametry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetFakturyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransakcjeList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetTransakcjeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaPrzetwarzaneList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaPrzetwarzaneList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetKoszyk">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetKoszyk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykPozycjeList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetKoszykPozycjeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykiList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetKoszykiList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSposóbZapłatyOdbioruList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetSposóbZapłatyOdbioruList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMiejscaDostawyList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetMiejscaDostawyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliwyTerminDostawyList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetMożliwyTerminDostawyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliweDniPłatnościList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetMożliweDniPłatnościList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienie">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV2">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV3">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV4">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKoszyk">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/DelKoszyk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrupyTowaroweList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetGrupyTowaroweList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKrajeList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetKrajeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAdresWysyłkowy">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/DelAdresWysyłkowy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowy">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweListV2">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweListV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowyV2">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowyV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweHistListV2">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweHistListV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresyWysyłkoweNieAktywnyV2">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresyWysyłkoweNieAktywnyV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOswiadczenieVATList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetOswiadczenieVATList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOswiadczenieCzynnyPodatnikVAT">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetOswiadczenieCzynnyPodatnikVAT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaDRList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaDRList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyDRList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetFakturyDRList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieDRZnieśBlokadę">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieDRZnieśBlokadę" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPunktyOdbioruKurieraList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceNetBase/GetPunktyOdbioruKurieraList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicBindingUserPassword_IServiceNetBase" type="tns:IServiceNetBase">
+    <wsp:PolicyReference URI="#BasicBindingUserPassword_IServiceNetBase_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTowaryInfoList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryStanList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryStanList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowaryGrupaInfoList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowaryGrupaInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowarParametry">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetTowarParametry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetFakturyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransakcjeList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetTransakcjeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaPrzetwarzaneList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaPrzetwarzaneList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetKoszyk">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetKoszyk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykPozycjeList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetKoszykPozycjeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKoszykiList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetKoszykiList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSposóbZapłatyOdbioruList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetSposóbZapłatyOdbioruList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMiejscaDostawyList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetMiejscaDostawyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliwyTerminDostawyList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetMożliwyTerminDostawyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMożliweDniPłatnościList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetMożliweDniPłatnościList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienie">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV2">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV3">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieV4">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieV4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelKoszyk">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/DelKoszyk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrupyTowaroweList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetGrupyTowaroweList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKrajeList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetKrajeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAdresWysyłkowy">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/DelAdresWysyłkowy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowy">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweListV2">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweListV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresWysyłkowyV2">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresWysyłkowyV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdresyWysyłkoweHistListV2">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetAdresyWysyłkoweHistListV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdresyWysyłkoweNieAktywnyV2">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetAdresyWysyłkoweNieAktywnyV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOswiadczenieVATList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetOswiadczenieVATList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOswiadczenieCzynnyPodatnikVAT">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetOswiadczenieCzynnyPodatnikVAT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZamówieniaDRList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetZamówieniaDRList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFakturyDRList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetFakturyDRList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetZamówienieDRZnieśBlokadę">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/SetZamówienieDRZnieśBlokadę" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPunktyOdbioruKurieraList">
+      <soap:operation soapAction="http://tempuri.org/IServiceNetBase/GetPunktyOdbioruKurieraList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceNetBase">
+    <wsdl:port name="BindingUserPassword_IServiceNetBase" binding="tns:BindingUserPassword_IServiceNetBase">
+      <soap12:address location="https://online.incom.pl/NBWebServiceIT/service.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://online.incom.pl/NBWebServiceIT/service.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicBindingUserPassword_IServiceNetBase" binding="tns:BasicBindingUserPassword_IServiceNetBase">
+      <soap:address location="https://online.incom.pl/NBWebServiceIT/service.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

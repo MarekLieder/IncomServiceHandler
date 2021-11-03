@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://online.incom.pl/NBWebServiceIT/service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" />
+  <xs:import schemaLocation="https://online.incom.pl/NBWebServiceIT/service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetTowaryInfoList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowaryInfoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetTowaryInfoListResult" nillable="true" type="q1:TowarInfoListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowaryStanList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowaryStanListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetTowaryStanListResult" nillable="true" type="q2:TowarStanyListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowaryGrupaInfoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdGrupy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowaryGrupaInfoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetTowaryGrupaInfoListResult" nillable="true" type="q3:TowarInfoListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowarParametry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Towar" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowarParametryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetTowarParametryResult" nillable="true" type="q4:TowarParametryListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakturyList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakturyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetFakturyListResult" nillable="true" type="q5:FakturyListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransakcjeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Rodzaj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransakcjeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetTransakcjeListResult" nillable="true" type="q6:TransakcjeListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Realizacja" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetZamówieniaListResult" nillable="true" type="q7:ZamówieniaListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaPrzetwarzaneList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaPrzetwarzaneListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetZamówieniaPrzetwarzaneListResult" nillable="true" type="q8:ZamówieniaPrzetwarzaneListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetKoszyk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="Koszyk" nillable="true" type="q9:KoszykType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetKoszykResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKoszykPozycjeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Nazwa" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DniTerminuPłatności" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKoszykPozycjeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetKoszykPozycjeListResult" nillable="true" type="q10:KoszykPozycjeListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKoszykiList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKoszykiListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetKoszykiListResult" nillable="true" type="q11:KoszykiListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSposóbZapłatyOdbioruList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSposóbZapłatyOdbioruListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetSposóbZapłatyOdbioruListResult" nillable="true" type="q12:SposóbZapłatyOdbioruListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMiejscaDostawyList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMiejscaDostawyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetMiejscaDostawyListResult" nillable="true" type="q13:MiejsceDostawyListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMożliwyTerminDostawyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SposóbOdbioru" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMożliwyTerminDostawyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetMożliwyTerminDostawyListResult" nillable="true" type="q14:MożliwyTerminDostawyListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMożliweDniPłatnościList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMożliweDniPłatnościListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetMożliweDniPłatnościListResult" nillable="true" type="q15:MożliweDniPłatnościListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Koszyk" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumerZamówienia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Uwaga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Częściowo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DniTerminuDostawy" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="DniTerminuPłatności" type="xs:int" />
+        <xs:element minOccurs="0" name="SposóbZapłaty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SposóbDostawy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MiejsceWysyłki" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetZamówienieResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Koszyk" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumerZamówienia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Uwaga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Częściowo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DniTerminuDostawy" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="DniTerminuPłatności" type="xs:int" />
+        <xs:element minOccurs="0" name="SposóbZapłaty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SposóbDostawy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AdresDostawy" type="q16:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetZamówienieV2Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Koszyk" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumerZamówienia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Uwaga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Częściowo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DniTerminuDostawy" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="DniTerminuPłatności" type="xs:int" />
+        <xs:element minOccurs="0" name="SposóbZapłaty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SposóbDostawy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AdresDostawy" type="q17:guid" />
+        <xs:element minOccurs="0" name="KwotaPobrania" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="Blokada" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetZamówienieV3Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV4">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Koszyk" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumerZamówienia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Uwaga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Częściowo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DniTerminuDostawy" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="DniTerminuPłatności" type="xs:int" />
+        <xs:element minOccurs="0" name="SposóbZapłaty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SposóbDostawy" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AdresDostawy" type="q18:guid" />
+        <xs:element minOccurs="0" name="KwotaPobrania" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="Blokada" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PunktOdbioru" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmailOdbioru" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TelOdbioru" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ImieINazwiskoOdbioru" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DostawaDoPO" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieV4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetZamówienieV4Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelKoszyk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Nazwa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelKoszykResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrupyTowaroweList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDH" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrupyTowaroweListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetGrupyTowaroweListResult" nillable="true" type="q19:GrupyTowaroweListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKrajeList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKrajeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetKrajeListResult" nillable="true" type="q20:KrajeListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetAdresyWysyłkoweListResult" nillable="true" type="q21:AdresyWysyłkoweListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelAdresWysyłkowy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q22:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelAdresWysyłkowyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresWysyłkowy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Nazwa" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Miasto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="KodPocztowy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ulica" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Kraj" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Jednorazowy" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Komentarz" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Kontakt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FakturaRazemZTowarem" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresWysyłkowyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SetAdresWysyłkowyResult" type="q23:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweListV2">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweListV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetAdresyWysyłkoweListV2Result" nillable="true" type="q24:AdresyWysyłkoweV2ListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresWysyłkowyV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EtykietaAdresu" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NazwaMiejscaWysyłki" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Miasto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="KodPocztowy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ulica" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Kraj" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Jednorazowy" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Komentarz" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OsobaKontaktowa" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FakturaRazemZTowarem" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresWysyłkowyV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SetAdresWysyłkowyV2Result" type="q25:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweHistListV2">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdresyWysyłkoweHistListV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetAdresyWysyłkoweHistListV2Result" nillable="true" type="q26:AdresyWysyłkoweHistV2ListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresyWysyłkoweNieAktywnyV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q27:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAdresyWysyłkoweNieAktywnyV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAdresyWysyłkoweNieAktywnyV2Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOswiadczenieVATList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOswiadczenieVATListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetOswiadczenieVATListResult" nillable="true" type="q28:OswiadczeniaVATListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOswiadczenieCzynnyPodatnikVAT">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOswiadczenieCzynnyPodatnikVATResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetOswiadczenieCzynnyPodatnikVATResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaDRList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Realizacja" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Numer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZamówieniaDRListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetZamówieniaDRListResult" nillable="true" type="q29:ZamówieniaDRListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakturyDRList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Numer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakturyDRListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetFakturyDRListResult" nillable="true" type="q30:FakturyDRListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieDRZnieśBlokadę">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Numer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetZamówienieDRZnieśBlokadęResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetZamówienieDRZnieśBlokadęResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPunktyOdbioruKurieraList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SposóbZapłaty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SposóbOdbioru" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPunktyOdbioruKurieraListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/WcfServiceLibraryNetBase" minOccurs="0" name="GetPunktyOdbioruKurieraListResult" nillable="true" type="q31:PunktyOdbioruKurieraListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
